@@ -17,6 +17,6 @@ tts = TextToSpeechV1(authenticator=authenticator)
 tts.set_service_url(url)
 
 # 音声ファイル作成
-with open('./audio/audio.mp3', 'wb') as audio_file:
+with open('./audio.mp3', 'wb') as audio_file:
     res = tts.synthesize(text, accept='audio/mp3', voice='ja-JP_EmiV3Voice').get_result()
     audio_file.write(res.content)
