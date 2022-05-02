@@ -9,7 +9,8 @@ with open("./auth.json",'r') as auth:
     apikey= auth_info['apikey']
     url=auth_info['url']
 # 音声に変換したい文章
-text='ちなみに、先ほど探していたのは、こちらの資料でしょう。'
+# text='ちなみに、先ほど探していたのは、こちらの資料でしょう。'
+text='黄恂恂真漂亮'
 
 # setup service
 authenticator = IAMAuthenticator(apikey)
@@ -18,5 +19,6 @@ tts.set_service_url(url)
 
 # 音声ファイル作成
 with open('./audio.mp3', 'wb') as audio_file:
-    res = tts.synthesize(text, accept='audio/mp3', voice='ja-JP_EmiV3Voice').get_result()
+    # res = tts.synthesize(text, accept='audio/mp3', voice='ja-JP_EmiV3Voice').get_result()
+    res = tts.synthesize(text, accept='audio/mp3', voice='zh-CN_LiNaVoice').get_result()    
     audio_file.write(res.content)
